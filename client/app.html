@@ -1,0 +1,90 @@
+<template name="bbody">
+  {{> header}}
+  {{#if currentUser}}
+    {{#if admin}}
+      {{> adder}}
+      {{> list}}
+    {{else}}
+       {{> validator}}
+    {{/if}}
+  {{else}}
+    <div class="centered text-centered please-message">
+      <div class="ui message">
+        <div class="header">Please Login</div>
+        <p>This page is only avaiable to administrators.</p>
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+<template name="header">
+  <div class="ui brown inverted menu">
+    <div class="right menu">
+      {{#if currentUser}}
+        <div class="login item">
+          {{currentUser.emails.[0].address}}
+      </div>
+      <a href="#" class="action-sign-out item">
+        <i class="sign out icon"></i>
+        Sign out
+      </a>
+      {{else}}
+      <div class="login item">
+        <form class="login-form ui action input {{loginError}}">
+          <input type="text" class="login" placeholder="email">
+          <input type="password" class="password" placeholder="password">
+          <div class="ui button positive login-button">Login</div>
+          <div class="ui button signup-button">Signup</div>
+        </form>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="adder">
+  <div class="adder centered">
+    <form class="ui form">
+      <h2>A New Shorty</h2>
+      <div class="field">
+        <div class="ui labeled input path-input">
+          <div class="ui label"> http://6148.io/ </div>
+          <input type="text" id="path" placeholder="ShortyName">
+        </div>
+        <i class="pointing right icon"></i>
+        <input type="url" id="url" placeholder="http://awesomeness">
+        <button class="ui button basic green">Set</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template name="validator">
+  <div>
+    <div class="centered text-centered please-message">
+      <div class="ui message">
+        <div class="header">Make yourself an admin</div>
+        <p>Only people with a special magic word are allowed to be an admin. Enter the special magic word below.</p>
+      </div>
+      <form class="ui right labeled left icon input action">
+        <input type="text" id="secret" placeholder="magic word"/>
+        <i class="wizard icon"></i>
+        <button class="ui button label">Check</button>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name="list">
+  <div class="centered stuff-list">
+    <h2>Shorties so far</h2>
+    <div class="ui relaxed divided list">
+    {{#each stuff}}
+      <div class="item">
+        <div class="header">{{_id}}</div>
+        <a href="{{path}}" class="description">{{path}}</a>
+      </div>
+    {{/each}}
+  </div>
+  </div>
+</template>

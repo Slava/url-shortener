@@ -1,0 +1,49 @@
+.ui.menu {
+  border-radius: 0px !important;
+}
+
+.login-link-text {
+  color: white;
+  font-weight: 500;
+}
+
+.login-form {
+  display: inline;
+}
+
+.login-form input.password {
+  border-radius: 0 0 0 0 !important;
+}
+
+.please-message.centered {
+  max-width: 400px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.adder {
+  max-width: 800px;
+}
+
+.adder .path-input {
+  width: 250px !important;
+}
+.adder #path {
+  width: 120px;
+}
+.adder #url {
+  width: 200px;
+}
+
+.stuff-list {
+  max-width: 800px;
+  margin-top: 100px;
+}
