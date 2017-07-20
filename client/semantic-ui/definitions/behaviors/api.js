@@ -323,7 +323,7 @@ $.api = $.fn.api = function(parameters) {
           cancelled: function() {
             return (module.cancelled || false);
           },
-          succesful: function() {
+          successful: function() {
             return (module.request && module.request.state() == 'resolved');
           },
           failure: function() {
@@ -534,7 +534,7 @@ $.api = $.fn.api = function(parameters) {
                 response
               ;
               // have to guess callback parameters based on request success
-              if( module.was.succesful() ) {
+              if( module.was.successful() ) {
                 response = firstParameter;
                 xhr      = secondParameter;
               }
